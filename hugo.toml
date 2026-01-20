@@ -19,7 +19,7 @@ theme = "PaperMod"
   # 홈 소개 카드
   [params.homeInfoParams]
     Title = "🐇 Welcome to STATsDL Playground"
-    Content = "This is a page for posting statistical deep learning contents. 
+    Content = "This is a page for posting statistical deep learning contents. "
 
 
   # 홈에 최신 글이 보이도록 (study/research 둘 다 포함)
