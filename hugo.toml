@@ -3,10 +3,21 @@ languageCode = "ko-kr"
 title = "bosco"
 theme = "PaperMod"
 
+[pagination]
+  pagerSize = 10
+
 [params]
   defaultTheme = "light"
   ShowToc = true
   math = true
+
+  # ✅ 메인에서 "자기소개 카드" (PaperMod 기본 홈)
+  [params.homeInfoParams]
+    Title = "김찬우"
+    Content = "Seoul National University M.S. student. Statistical ML / Deep Learning "
+
+  # ✅ 메인에서 최신 글 리스트가 보이도록 (프로필 아래에 포스트 목록)
+  mainSections = ["study", "research"]
 
 [menu]
   [[menu.main]]
