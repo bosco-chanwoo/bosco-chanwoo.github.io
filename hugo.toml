@@ -30,3 +30,15 @@ theme = "PaperMod"
   [[params.socialIcons]]
   name = "email"
   url = "mailto:bosco999@snu.ac.kr"
+
+[menu]
+
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Study"
+    url = "/study/"
+    weight = 20
