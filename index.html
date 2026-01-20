@@ -1,180 +1,230 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>김찬우 | Seoul National University</title>
+# 2) Hugo 사이트 초기화 (현재 폴더에 생성)
+# 이미 hugo 사이트 구조가 있다면 이 줄은 건너뛰세요.
+hugo new site . --force
 
-  <style>
-    :root {
-      --maxw: 920px;
-      --fg: #111;
-      --muted: #666;
-      --border: #e7e7e7;
-      --bg: #fff;
-      --card: #fafafa;
-      --link: #0b57d0;
-    }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Arial, sans-serif;
-      color: var(--fg);
-      background: var(--bg);
-      line-height: 1.7;
-    }
-    .wrap {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 28px;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.1rem;
-      letter-spacing: -0.02em;
-    }
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-    }
-    nav {
-      margin-top: 10px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      font-size: 0.98rem;
-    }
-    nav a {
-      color: var(--link);
-      text-decoration: none;
-    }
-    nav a:hover { text-decoration: underline; }
+# 3) PaperMod 테마 설치 (git submodule 방식)
+git init 2>/dev/null || true
+git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
 
-    section { margin-top: 34px; }
-    h2 {
-      font-size: 1.35rem;
-      margin: 0 0 10px;
-      letter-spacing: -0.01em;
-    }
-    .hint {
-      color: var(--muted);
-      margin: 0 0 14px;
-      font-size: 0.98rem;
-    }
+# 4) hugo.toml 생성 (lil’log 느낌 + Study 섹션 메뉴 포함)
+cat > hugo.toml << 'EOF'
+baseURL = "https://USERNAME.github.io/"
+languageCode = "ko-kr"
+title = "김찬우"
+theme = "PaperMod"
+paginate = 10
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 16px;
-      margin: 12px 0;
-    }
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 1.08rem;
-    }
-    .card p { margin: 0; color: var(--muted); }
+[params]
+  defaultTheme = "light"
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowRssButtonInSectionTermList = true
 
-    ul { margin: 8px 0 0 18px; }
-    li { margin: 6px 0; }
+  # 홈 소개 문구 (원하면 수정)
+  homeInfoParams.Title = "김찬우"
+  homeInfoParams.Content = "M.S. student @ Seoul National University"
 
-    footer {
-      margin-top: 48px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-    .pill {
-      display: inline-block;
-      font-size: 0.85rem;
-      padding: 2px 10px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--muted);
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-  </style>
-</head>
+  # 수식(KaTeX) 사용: PaperMod에서 enable 가능
+  math = true
 
-<body>
-  <div class="wrap">
-    <header>
-      <h1>김찬우 <span class="pill">M.S. Student</span></h1>
-      <p class="subtitle">Seoul National University</p>
+[menu]
+  [[menu.main]]
+    name = "연구"
+    url = "/research/"
+    weight = 10
+  [[menu.main]]
+    name = "공부"
+    url = "/study/"
+    weight = 20
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/USERNAME"
+    weight = 30
 
-      <nav>
-        <a href="#research">연구</a>
-        <a href="#study">공부</a>
-        <!-- 필요하면 아래 링크도 열어두고 나중에 채우면 됨 -->
-        <!-- <a href="#contact">Contact</a> -->
-      </nav>
-    </header>
+# (선택) 한국어 렌더링 최적화
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+EOF
 
-    <!-- 연구 -->
-    <section id="research">
-      <h2>연구</h2>
-      <p class="hint">여기는 “진행 중인 연구 / 관심 주제 / 정리글 링크”를 올리는 영역으로 비워두거나 천천히 채우면 돼요.</p>
+# 5) PaperMod의 KaTeX 설정용 partial 추가 (math=true만으로 부족할 때 대비)
+mkdir -p layouts/partials
+cat > layouts/partials/math.html << 'EOF'
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[
+    {left:'$$',right:'$$',display:true},
+    {left:'$',right:'$',display:false},
+    {left:'\\(',right:'\\)',display:false},
+    {left:'\\[',right:'\\]',display:true}
+  ]});"></script>
+EOF
 
-      <div class="card">
-        <h3>Research Interests</h3>
-        <p>(공백)</p>
-      </div>
+# 6) PaperMod가 math partial을 불러오도록 확실히 head에 삽입
+mkdir -p layouts/partials
+cat > layouts/partials/extend_head.html << 'EOF'
+{{ if or (.Params.math) (.Site.Params.math) }}
+  {{ partial "math.html" . }}
+{{ end }}
+EOF
 
-      <div class="card">
-        <h3>진행 중 / 예정</h3>
-        <ul>
-          <li>(추가 예정)</li>
-        </ul>
-      </div>
+# 7) content 구조 만들기 (교재형)
+mkdir -p content/research
+mkdir -p content/study/diffusion
+mkdir -p content/study/gine-nickl
 
-      <div class="card">
-        <h3>읽은/정리한 글</h3>
-        <ul>
-          <li>(추가 예정)</li>
-        </ul>
-      </div>
-    </section>
+# 8) 섹션(목차) 페이지 생성: _index.md
+cat > content/research/_index.md << 'EOF'
+---
+title: "연구"
+---
 
-    <!-- 공부 -->
-    <section id="study">
-      <h2>공부</h2>
-      <p class="hint">두 트랙: Diffusion / Giné–Nickl 교재</p>
+(추가 예정)
 
-      <div class="card">
-        <h3>Diffusion</h3>
-        <ul>
-          <li><a href="study/diffusion.html">노트</a> (추가 예정)</li>
-          <li><a href="study/diffusion-reading-list.html">Reading list</a> (추가 예정)</li>
-        </ul>
-        <p>확률과 score-based modeling, SDE/ODE, sampling 등을 정리하는 공간.</p>
-      </div>
+- 진행 중 연구
+- 읽은 논문 정리
+- 아이디어 메모
+EOF
 
-      <div class="card">
-        <h3>Giné–Nickl 교재</h3>
-        <ul>
-          <li><a href="study/gine-nickl.html">노트</a> (추가 예정)</li>
-          <li><a href="study/gine-nickl-problems.html">문제 풀이</a> (추가 예정)</li>
-        </ul>
-        <p>무한차원 통계 / empirical process / 수렴·metric 등 핵심 정리.</p>
-      </div>
-    </section>
+cat > content/study/_index.md << 'EOF'
+---
+title: "공부"
+---
 
-    <footer>
-      <div>© <span id="y"></span> 김찬우 · Built with GitHub Pages</div>
-    </footer>
-  </div>
+책/주제 단위로 정리하는 노트.
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+- [Diffusion](/study/diffusion/)
+- [Giné–Nickl 교재](/study/gine-nickl/)
+EOF
+
+cat > content/study/diffusion/_index.md << 'EOF'
+---
+title: "Diffusion"
+---
+
+Diffusion / score-based modeling 노트 목차.
+
+- [Overview](/study/diffusion/overview/)
+- [Score Matching](/study/diffusion/score-matching/)
+- [SDE Formulation](/study/diffusion/sde/)
+- [Sampling](/study/diffusion/sampling/)
+EOF
+
+cat > content/study/gine-nickl/_index.md << 'EOF'
+---
+title: "Giné–Nickl 교재"
+---
+
+Giné–Nickl 교재 기반 무한차원 통계/empirical process 노트.
+
+- [Chapter 1](/study/gine-nickl/ch1/)
+- [Chapter 2](/study/gine-nickl/ch2/)
+- [Exercises](/study/gine-nickl/exercises/)
+EOF
+
+# 9) 샘플 페이지(각각 1개씩) 생성
+cat > content/study/diffusion/overview.md << 'EOF'
+---
+title: "Overview"
+date: 2026-01-20
+math: true
+---
+
+Diffusion의 큰 그림.
+
+$$
+x_t = \alpha_t x_0 + \sigma_t \epsilon
+$$
+
+(추가 예정)
+EOF
+
+cat > content/study/gine-nickl/ch1.md << 'EOF'
+---
+title: "Chapter 1"
+date: 2026-01-20
+math: true
+---
+
+Chapter 1 노트.
+
+$$
+\|P - Q\|_{\mathrm{TV}} = \sup_{A} |P(A)-Q(A)|
+$$
+
+(추가 예정)
+EOF
+
+# 10) 정적 빌드 산출물은 public/ (gitignore)
+cat > .gitignore << 'EOF'
+public/
+resources/
+.hugo_build.lock
+EOF
+
+# 11) GitHub Actions 배포 워크플로우 (유저/조직 페이지용)
+mkdir -p .github/workflows
+cat > .github/workflows/hugo.yml << 'EOF'
+name: Deploy Hugo site to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.125.7"
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+EOF
+
+echo ""
+echo "✅ Done. 이제 hugo.toml의 USERNAME을 본인 GitHub 아이디로 바꾸세요."
+echo "   (baseURL, GitHub 메뉴 URL 2곳)"
+echo ""
+echo "로컬 미리보기: hugo server -D"
+echo "커밋/푸시 후: GitHub > Settings > Pages에서 Source를 'GitHub Actions'로 설정"
