@@ -1,0 +1,20 @@
+baseURL = "https://bosco-chanwoo.github.io/"
+languageCode = "ko-kr"
+title = "bosco"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "light"
+  ShowToc = true
+  math = true
+
+[menu]
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Study"
+    url = "/study/"
+    weight = 20
