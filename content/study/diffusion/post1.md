@@ -1,5 +1,5 @@
 ---
-title: Introduction: Deep Generative Modeling(DGM)
+title: 'Introduction: Deep Generative Modeling(DGM)'
 ---
 ## Goal of DGM
 The ultimate goal of DGM is to learn a probability distribution from which data samples are generated.
