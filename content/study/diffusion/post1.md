@@ -1,8 +1,6 @@
 ---
-title: "Introduction of Diffusion Model 1"
+title: Introduction: Deep Generative Modeling(DGM)
 ---
-
-
-# 1. Introduction of diffusion model
-## 1. hello
-### 1. hello2
+## Goal of DGM
+The ultimate goal of DGM is to learn a probability distribution from which data samples are generated.
+True data distribution $p_{data}(x)$ is usually unknown, So we want to approximate the data distribution with $p_\phi(x)$ 
