@@ -42,3 +42,8 @@ theme = "PaperMod"
     name = "Study"
     url = "/study/"
     weight = 20
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
