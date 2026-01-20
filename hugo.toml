@@ -7,25 +7,22 @@ theme = "PaperMod"
   pagerSize = 10
 
 [params]
+ [params]
   defaultTheme = "light"
   ShowToc = true
   math = true
 
-  # ✅ 메인에서 "자기소개 카드" (PaperMod 기본 홈)
+  # 홈 소개 카드
   [params.homeInfoParams]
-    Title = "김찬우"
-    Content = "Seoul National University M.S. student. Statistical ML / Deep Learning "
+    Title = "Welcome to STATsDL Playground"
+    Content = "This is a page for posting statistical deep learning contents. I’m currently an M.S. student in Statistics at Seoul National University."
 
-  # ✅ 메인에서 최신 글 리스트가 보이도록 (프로필 아래에 포스트 목록)
+
+  # 홈에 최신 글이 보이도록 (study/research 둘 다 포함)
   mainSections = ["study", "research"]
 
-[menu]
-  [[menu.main]]
-    name = "Research"
-    url = "/research/"
-    weight = 10
-
-  [[menu.main]]
-    name = "Study"
-    url = "/study/"
-    weight = 20
+ 
+  # (선택) 이메일 아이콘
+  [[params.socialIcons]]
+  name = "email"
+  url = "mailto:bosco999@snu.ac.kr"
