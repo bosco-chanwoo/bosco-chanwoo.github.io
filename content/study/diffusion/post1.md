@@ -22,10 +22,8 @@ True data distribution $p_{data}(x)$ is usually unknown, so we want to approxima
 
 ### Mathematical Formulation
 
-$[p_\phi(x) \approx p_{data}(x)\$
+$[p_\phi(x) \approx p_{data}(x)\]$
 
 Training objective:
 
-\[
-\max_\phi \; \mathbb{E}_{x \sim p_{data}} [\log p_\phi(x)]
-\]
+$\max_\phi \; \mathbb{E}_{x \sim p_{data}} [\log p_\phi(x)]$
