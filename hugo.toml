@@ -7,7 +7,6 @@ theme = "PaperMod"
   pagerSize = 10
 
 [params]
- [params]
   defaultTheme = "light"
   ShowToc = true
   math = true
