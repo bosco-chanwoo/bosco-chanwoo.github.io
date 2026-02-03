@@ -30,3 +30,4 @@ $$
 \mathbb{E}_{x \sim p_{\text{data}}}\left[\log p_\phi(x)\right]
 $$
 
+
