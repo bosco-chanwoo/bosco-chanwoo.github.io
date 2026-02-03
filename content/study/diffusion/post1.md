@@ -27,5 +27,5 @@ $$
 - Training objective
 
 $$
-\max_\phi \; \mathbb{E}_{x \sim p_{\text{data}}} \big[\log p_\phi(x)\big]
+\mathbb{E}_{x \sim p_{\text{data}}} \big[\log p_\phi(x)\big]
 $$
