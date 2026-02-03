@@ -1,6 +1,6 @@
 
 ## 1. Introduction: Deep Generative Modeling(DGM)
-> 이 장에서는 Deep Generative Modeling의 목적, 기본 베이스 아이디어에서 시작하여 다양한 방법론에 대해 간단히 소개한다. 또한 특정 방법론들이 Diffusion model과 어떤식으로 연결되는지 개괄하고자 한다. 
+이 장에서는 Deep Generative Modeling의 목적, 기본 베이스 아이디어에서 시작하여 다양한 방법론에 대해 간단히 소개한다. 또한 특정 방법론들이 Diffusion model과 어떤식으로 연결되는지 개괄하고자 한다. 
 
 
 ### 1.1 DGM의 목적
@@ -25,4 +25,6 @@ $$
 
 Training objective:
 
-$\max_\phi \; \mathbb{E}_{x \sim p_{data}} [\log p_\phi(x)]$
+$$
+\max_\phi \; \mathbb{E}_{x \sim p_{data}} [\log p_\phi(x)]
+$$
