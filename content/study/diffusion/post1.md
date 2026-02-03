@@ -18,7 +18,7 @@
 ## 1.2 Mathematical Formulation
 
 $$
-p_\phi(x) \approx p_{data}(x)\
+p_\phi(x) \approx p_{data}(x)
 $$
 
 >> 실제 데이터의 분포를 알 수 없기 때문에,
