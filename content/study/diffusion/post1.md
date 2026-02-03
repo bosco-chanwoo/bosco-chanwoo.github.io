@@ -15,13 +15,13 @@
 ---
 
 ### 1.2 Mathematical Formulation
-Distribution Modeling
+True Data distbution을 추정하고자 하는데 $\phi$로 모수화한 model을 다음과 같이 표현한다.
 
 $$
 p_\phi(x) \approx p_{data}(x)
 $$
 
-Training objective
+위와 같은 model의 모수를 추정할 때에 주로 사용되는 방식은 MLE이다. 다음과 같은 objective function을 최대화하는 $\phi$를 MLE라고 한다.
 
 $$
 \mathbb{E}_{x \sim p_{\text{data}}}\big[\log p_\phi(x)\big]
