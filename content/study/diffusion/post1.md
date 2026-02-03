@@ -4,10 +4,11 @@ title: '1. Introduction: Deep Generative Modeling(DGM)'
 ## DGM의 목적
 
 실제 데이터의 분포에서 새로운 데이터를 생성하는 것을 목표로 한다. 
+크게 두가지 방법으로 나눌 수 있는데
 
+1. explicit modeling : $p_{data}(x)$ 를 직접적으로 모델링 및 추정한 $p_\phi(x)$로부터 새로운 데이터를 Sampling한다.
+2. implicit modeling : x의 분포를 직접 추정하지는 않지만, p(z) Sampling -> p(x|z) Sampling과 같은 방식을 통해 새로운 데이터를 Sampling 한다.  
 
-The ultimate goal of DGM is to learn a probability distribution from which data samples are generated.
-True data distribution $p_{data}(x)$ is usually unknown, so we want to approximate it with $p_\phi(x)$.
 
 ---
 
