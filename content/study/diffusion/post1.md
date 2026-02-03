@@ -15,13 +15,13 @@
 ---
 
 ### 1.2 Mathematical Formulation
-- Distribution Modeling
+Distribution Modeling
 
 $$
 p_\phi(x) \approx p_{data}(x)
 $$
 
-- Training objective
+Training objective
 
 $$
 \mathbb{E}_{x \sim p_{\text{data}}}\big[\log p_\phi(x)\big]
