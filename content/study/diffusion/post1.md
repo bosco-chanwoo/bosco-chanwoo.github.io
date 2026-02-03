@@ -16,6 +16,7 @@
 
 ### 1.2 Mathematical Formulation
 - Distribution Modeling
+
 $$
 p_\phi(x) \approx p_{data}(x)
 $$
@@ -23,7 +24,7 @@ $$
 
 > 실제 데이터의 분포를 알 수 없기 때문에, 모델 분포가 실제 데이터 분포를 근사하도록 학습한다.
 
-- Training objective:
+- Training objective
 
 $$
 \max_\phi \; \mathbb{E}_{x \sim p_{data}} [\log p_\phi(x)]
