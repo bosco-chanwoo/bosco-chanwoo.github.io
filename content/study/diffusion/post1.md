@@ -27,6 +27,6 @@ $$
 - Training objective
 
 $$
-\mathbb{E}_{x \sim p_{\text{data}}} \big[\log p_\phi(x)\big]
+\mathbb{E}_{x \sim p_{\text{data}}}\left[\log p_\phi(x)\right]
 $$
 
