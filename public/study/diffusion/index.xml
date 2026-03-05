@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>bosco</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on bosco</description>
+    <title>Diffusion Models on bosco</title>
+    <link>http://localhost:1313/study/diffusion/</link>
+    <description>Recent content in Diffusion Models on bosco</description>
     <generator>Hugo -- 0.157.0</generator>
     <language>ko-kr</language>
     <managingEditor>bosco999@snu.ac.kr (bosco)</managingEditor>
     <webMaster>bosco999@snu.ac.kr (bosco)</webMaster>
     <lastBuildDate>Wed, 18 Feb 2026 21:45:00 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/study/diffusion/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction: Deep Generative Modeling</title>
       <link>http://localhost:1313/study/diffusion/post1/</link>

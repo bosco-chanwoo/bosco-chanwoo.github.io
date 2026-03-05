@@ -13,9 +13,13 @@ mainSections = ["study", "research"]
   math = true
   TocOpen = true
   TocSidebar = true
-  ShowReadingTime = true
+  ShowReadingTime = false
   ShowShareButtons = true
   ShowPostNavLinks = true
+
+  [params.author]
+    name = "bosco"
+    email = "bosco999@snu.ac.kr"
 
   # 홈 소개 카드
   [params.homeInfoParams]
